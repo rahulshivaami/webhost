@@ -21,11 +21,14 @@ if (isset($_POST['submit'])) {
                 . "VALUES ('".$user_id."','".$domain."','".$pathto."','".$ssl."','".$amp."',NOW(),'".$user_id."')";
 
         $insert = mysqli_query($conn, $sql);
+        
         if (isset($insert)) {
             echo "User added successfully!";
+            $_SESSION['msg'] = "success";
             header('Location: home.php');
         } else {
             echo "Try again!";
+            $_SESSION['msg'] = "fail";
             header('Location: home.php');
         }
     } else {

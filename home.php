@@ -47,9 +47,45 @@ require 'menu.php';
             <input style="cursor: pointer;" class="btn btn-primary" type="submit" name="submit" >
             </center>
         </div>
+    </div><br>
+    <div class="row">
+        <div class="col-lg-3">
+            
+        </div>
+        <div style="display:none;" class="col-lg-6" id="successmsg">
+            <center>
+                <i class="fa fa-check" style="color:#00ff00;"></i>
+                <label>Domain added successfully!</label>
+            </center>
+        </div>
+        <div style="display:none;" class="col-lg-6" id="errormsg">
+            <center>
+                <i class="fa fa-close" style="color:#ff0000;"></i>
+                <label>Domain add process failed!</label>
+            </center>
+        </div>
     </div>
 </form>
 </div>
+<script>
+var session_msg = '<?php echo $_SESSION["msg"]; ?>';
+if(session_msg=='success'){
+    document.getElementById("successmsg").style.display = "block";
+    setTimeout(function () {
+        document.getElementById("successmsg").style.display = "none";
+    }, 3000);
+    var op = '<?php unset($_SESSION['msg']) ?>';
+}else if(session_msg=='fail'){
+    document.getElementById("errormsg").style.display = "block";
+    setTimeout(function () {
+        document.getElementById("errormsg").style.display = "none";
+    }, 3000);
+    var op = '<?php unset($_SESSION['msg']) ?>';
+}
+
+</script>
+    
+</script>
 <?php
 require 'footer.php';
 ?>
