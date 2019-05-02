@@ -43,7 +43,7 @@ if (isset($_POST['login'])) {
 
         header("Location: home.php");
     } else {
-        echo 'not done';
+        header("Location: home.php");
     }
     exit;
 }
