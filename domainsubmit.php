@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
     //exit;
     if ($_FILES['file']['name'] != "") {
         $path = $_FILES['file']['name'];
-        $pathto = "/Applications/XAMPP/htdocs/uploads/" . $path;
+        $pathto = "/var/www/html/uploads/" . $path;
         move_uploaded_file($_FILES['file']['tmp_name'], $pathto) or
                 die("Could not copy file!");
 
