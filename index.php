@@ -17,12 +17,12 @@
                 <hr>
                 <div class="row">
                     <div class="col-lg-4">Username:</div>
-                    <div class="col-lg-8"><input type="text" name="username" autocomplete="off" size="30"></div>
+                    <div class="col-lg-8"><input type="text" required name="username" autocomplete="off" size="30"></div>
 
                 </div><br>
                 <div class="row">
                     <div class="col-lg-4">Password:</div>
-                    <div class="col-lg-8"><input type="password" name="password" autocomplete="off" size="30"></div>
+                    <div class="col-lg-8"><input type="password" required name="password" autocomplete="off" size="30"></div>
                 </div><br>
                 <div class="row">
                     <center>
