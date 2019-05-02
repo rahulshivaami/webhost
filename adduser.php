@@ -9,8 +9,8 @@ if (isset($_POST['signup_user'])) {
     $email = trim($data['email']);
     $password = md5($data['password']);
 
-    $sql = "INSERT INTO `user`(`name`, `contact`, `email`, `password`, `created_date`) "
-            . "VALUES ('" . $name . "','" . $contact . "','" . $email . "','" . $password . "',NOW())";
+    $sql = "INSERT INTO `user`(`name`, `contact`, `email`, `password`, `created_date`,`created_by`,`updated_date`,`updated_by`) "
+            . "VALUES ('" . $name . "','" . $contact . "','" . $email . "','" . $password . "',NOW(),'1',NOW(),'1')";
 
     $insert = mysqli_query($conn, $sql);
     if (isset($insert)) {
