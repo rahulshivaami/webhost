@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
     $domain = $data['domain'];
     $ssl = $data['ssl'];
     $amp = $data['amp'];
-    print_r($data);
+    //print_r($data);
     //exit;
     if ($_FILES['file']['name'] != "") {
         $path = $_FILES['file']['name'];
