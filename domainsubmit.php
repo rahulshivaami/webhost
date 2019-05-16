@@ -9,11 +9,15 @@ if (isset($_POST['submit'])) {
     $domain = $data['domain'];
     $ssl = $data['ssl'];
     $amp = $data['amp'];
+    $pa = "C:/xampp/htdocs/rb/webhost/uploads/";
+    //$path = "/var/www/html/uploads/";
+    mkdir($pa.$domain, 0777);
     //print_r($data);
     //exit;
     if ($_FILES['file']['name'] != "") {
         $path = $_FILES['file']['name'];
-        $pathto = "/var/www/html/uploads/" . $path;
+        $pathto = $pa.$domain."/". $path;
+        //$pathto = "/var/www/html/uploads/" . $path;
         move_uploaded_file($_FILES['file']['tmp_name'], $pathto) or
                 die("Could not copy file!");
 
