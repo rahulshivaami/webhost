@@ -23,7 +23,10 @@ require 'menu.php';
   100% { transform: rotate(360deg); }
 }
 </style>
-<div class="container"><br>
+<div class="container">
+
+    
+    <br>
     <form action="domainsubmit.php" method="POST" enctype="multipart/form-data">
     <center><h3>Fill the detail</h3></center><br>
     <div class="row" id="form-data1">
@@ -113,12 +116,35 @@ require 'menu.php';
     <div class="row"><center><div class="loader" style="display:none;"></div></center></div>
 </div>
 
+<!-- Modal -->
+<div id="myModal" class="modal" role="dialog" style="display:none;z-index: 9999;">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" onclick="hide_modal();" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">What's Next!!!</h4>
+      </div>
+      <div class="modal-body">
+        <p>You'll receive two DNS records in your email and instructions to update them in your Domain DNS panel. After the activity your website will be live on <?php echo $_SESSION['domain'];?></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" onclick="hide_modal();" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <script>
 var session_msg = '<?php echo $_SESSION["msg"]; ?>';
+var domain = '<?php echo $_SESSION["domain"]; ?>';
 if(session_msg=='success'){
     document.getElementById("successmsg").style.display = "block";
     setTimeout(function () {
         document.getElementById("successmsg").style.display = "none";
+        document.getElementById("myModal").style.display = "block";
     }, 3000);
     var op = '<?php unset($_SESSION['msg']) ?>';
 }else if(session_msg=='fail'){
@@ -181,7 +207,9 @@ if(session_msg=='success'){
         $('#form-button-3').hide();
     }
     
-    
+    function hide_modal(){
+        $('#myModal').hide();
+    }
     
 </script> 
 <?php

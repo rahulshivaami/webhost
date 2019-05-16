@@ -29,6 +29,7 @@ if (isset($_POST['submit'])) {
         if (isset($insert)) {
             echo "User added successfully!";
             $_SESSION['msg'] = "success";
+            $_SESSION['domain'] = $domain;
             header('Location: home.php');
         } else {
             echo "Try again!";
