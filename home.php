@@ -1,6 +1,28 @@
 <?php
 require 'menu.php';
 ?>
+<style>
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
 <div class="container"><br>
     <form action="domainsubmit.php" method="POST" enctype="multipart/form-data">
     <center><h3>Fill the detail</h3></center><br>
@@ -66,7 +88,7 @@ require 'menu.php';
         <div class="col-lg-6">
             <center>
             <i class="fa fa-arrow-left fa-lg" onclick="back2();" style="color:#0000ff;border:1px solid #f1f1f1;padding:5px;cursor: pointer;">Back</i>
-            <input style="cursor: pointer;" class="btn btn-primary" type="submit" name="submit" value="Review & Submit">
+            <input style="cursor: pointer;" class="btn btn-primary" onclick="showload();" type="submit" name="submit" value="Review & Submit">
             </center>
         </div>
     </div><br>
@@ -88,7 +110,9 @@ require 'menu.php';
         </div>
     </div>
 </form>
+    <div class="row"><center><div class="loader" style="display:none;"></div></center></div>
 </div>
+
 <script>
 var session_msg = '<?php echo $_SESSION["msg"]; ?>';
 if(session_msg=='success'){
@@ -112,6 +136,10 @@ if(session_msg=='success'){
        $('#form-button-2').hide();
        $('#form-button-3').hide();
     });
+    
+    function showload() {
+        $('.loader').show();
+    }
     
     function next1(){
         $('#form-data1').hide();
